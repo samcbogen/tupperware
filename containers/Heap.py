@@ -216,8 +216,7 @@ class Heap(BinaryTree):
                 removed_value = node.right.value
                 node.right = None
             else:
-                removed_value, node.right = Heap._remove_bottom_right(
-                        node.right, remove_path[1:])
+                removed_value, node.right = Heap._remove_bottom_right(node.right, remove_path[1:])
         return removed_value, node
 
     @staticmethod

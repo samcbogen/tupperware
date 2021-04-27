@@ -37,14 +37,14 @@ class Heap(BinaryTree):
         Notice that in the BinaryTree class,
         we defined a __str__ function,
         but not a __repr__ function.
-        Recall that the __repr__ function should return a string 
+        Recall that the __repr__ function should return a string
         that can be used to recreate a valid instance of the class.
         Thus, if you create a variable using the command Heap([1,2,3])
         it's __repr__ will return "Heap([1,2,3])"
 
         For the Heap, type(self).__name__ will be the string "Heap",
         but for the AVLTree, this expression will be "AVLTree".
-        Using this expression ensures that all subclasses of Heap 
+        Using this expression ensures that all subclasses of Heap
         will have a correct implementation of __repr__,
         and that they won't have to reimplement it.
         '''
@@ -128,7 +128,7 @@ class Heap(BinaryTree):
             if not node.right:
                 node.right = Node(value)
             else:
-                node.right = Heap._insert(node.right, 
+                node.right = Heap._insert(node.right,
                                           value, insertion_path[1:])
         if insertion_path[0] == '0':
             if node.left.value < node.value:
@@ -210,8 +210,7 @@ class Heap(BinaryTree):
                 removed_value = node.left.value
                 node.left = None
             else:
-                removed_value, node.left = Heap._remove_bottom_right(
-                        node.left, remove_path[1:])
+                removed_value, node.left = Heap._remove_bottom_right(node.left, remove_path[1:])
         if remove_path[0] == '1':
             if len(remove_path) == 1:
                 removed_value = node.right.value
